@@ -32,19 +32,6 @@ async def quiz_2(call: types.CallbackQuery):
     )
 
 
-async def quiz_3(call: types.CallbackQuery):
-    question = "Сколько??"
-    answer = [
-        '4',
-        '8',
-        '4, 6',
-        '2, 4',
-        '5',
-    ]
-
-    photo = open("media/IMG_6629.jpg", "rb")
-    await bot.send_photo(call.from_user.id, photo=photo)
-
     await bot.send_poll(
         chat_id=call.from_user.id,
         question=question,
@@ -66,5 +53,4 @@ async def echo(message: types.Message):
 
 def register_handlers_callback(dp: Dispatcher):
     dp.register_callback_query_handler(quiz_2, text="button_1")
-    dp.register_callback_query_handler(quiz_3, text="button_2")
     dp.register_callback_query_handler(echo)
